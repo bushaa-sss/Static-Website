@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us</title>
+
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #f2f2f2, #e6e6e6);
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    nav {
+      background-color: #2d0424;
+      padding: 18px 0;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 0;
+      padding: 0;
+      font-weight: 600;
+      position: relative;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      display: inline-block;
+      user-select: none;
+      transition: color 0.3s ease, background-color 0.3s ease;
+    }
+
+    nav ul li a:hover,
+    nav ul li a:focus {
+      color: #ffc107;
+      background-color: rgba(255 255 255 / 0.15);
+      outline: none;
+      cursor: pointer;
+    }
+
+    /* Dropdown container */
+    nav ul li .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #2d0424;
+      border-radius: 6px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+      min-width: 160px;
+      z-index: 1000;
+    }
+
+    nav ul li:hover .dropdown,
+    nav ul li:focus-within .dropdown {
+      display: block;
+    }
+
+    /* Dropdown items */
+    nav ul li .dropdown a {
+      display: block;
+      padding: 10px 15px;
+      color: white;
+      font-weight: normal;
+      border-radius: 6px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav ul li .dropdown a:hover,
+    nav ul li .dropdown a:focus {
+      background-color: #ffc107;
+      color: #2d0424;
+      outline: none;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 100px auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+    }
+
+    h1 {
+      text-align: center;
+      color: #790e4a;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #53094a;
+      margin-bottom: 16px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 18px;
+      background-color: #2d0424;
+      color: white;
+      font-size: 14px;
+      margin-top: 130px;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 0;
+        align-items: center;
+      }
+
+      nav ul li .dropdown {
+        position: static;
+        box-shadow: none;
+        background-color: transparent;
+        display: none;
+        border-radius: 0;
+        min-width: auto;
+      }
+
+      nav ul li:hover .dropdown,
+      nav ul li:focus-within .dropdown {
+        display: block;
+        background-color: #2d0424;
+        border-radius: 0 0 6px 6px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+
+      <li tabindex="0">
+        <a href="services.html" aria-haspopup="true" aria-expanded="false">Services ▾</a>
+        <div class="dropdown" role="menu" aria-label="Services submenu">
+          <a href="calculator.html" role="menuitem" tabindex="-1"> Simple Calculator</a>
+          <a href="table.html" role="menuitem" tabindex="-1">Table Generator</a>
+          <a href="converter.html" role="menuitem" tabindex="-1">Unit Convertor</a>
+        
+        </div>
+      </li>
+
+      <li tabindex="0">
+        <a href="news.html" aria-haspopup="true" aria-expanded="false">News Channels ▾</a>
+        <div class="dropdown" role="menu" aria-label="News Channels submenu">
+          <a href="bbc.html" role="menuitem" tabindex="-1">BBC News</a>
+          <a href="ary.html" role="menuitem" tabindex="-1">ARY News</a>
+        </div>
+      </li>
+
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>👋 About Us</h1>
+    <p>
+      At MyWebsite, we're dedicated to creating streamlined, user-friendly web tools that simplify your daily online experience. From utility tools to quick information access, everything we build is designed to be fast, reliable, and intuitive.
+    </p>
+    <p>
+      Our vision is to bridge convenience and clarity by offering clean, functional solutions without distractions. Whether you're checking the latest updates or using a practical tool, our goal is to save you time and deliver value.
+    </p>
+    <p>
+      We appreciate your trust in us. If you have feedback or ideas, we’re always listening and eager to improve. Thank you for being part of our growing community!
+    </p>
+  </div>
+
+  <footer>
+    &copy; 2025 MyWebsite. All rights reserved.
+  </footer>
+
+</body>
+</html>

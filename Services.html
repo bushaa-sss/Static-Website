@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #2d0424;
+      padding: 15px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      color: #f39c12;
+    }
+
+    /* Dropdown menu */
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #3f123f;
+      border-radius: 5px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      min-width: 160px;
+      z-index: 1000;
+    }
+
+    .dropdown-menu li a {
+      display: block;
+      padding: 12px 16px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .dropdown-menu li a:hover {
+      background-color: #9a20a57f;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .content {
+      padding: 40px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #750e62;
+    }
+    h2 {
+      color: #750e62;
+    }
+    h3 {
+      color: #750e62;
+    }
+    p {
+      color: #750e62;
+      font-size: 18px;
+    }
+     main {
+      flex-grow: 1;
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    main h1 {
+      font-size: 3.2rem;
+      margin-bottom: 20px;
+      color: #2d0424;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    }
+
+    main p {
+      font-size: 1.3rem;
+      color: #444;
+      line-height: 1.5;
+      max-width: 600px;
+      margin: 0 auto 40px auto;
+    }
+
+    section.features {
+      display: flex;
+      justify-content: space-around;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+    }
+
+    .feature {
+      background: white;
+      padding: 25px 20px;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      flex: 1 1 250px;
+      color: #2c3e50;
+      user-select: none;
+    }
+
+    .feature h2 {
+      color: #6a1b9a;
+      margin-bottom: 12px;
+      font-size: 1.6rem;
+    }
+
+    .feature p {
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 18px;
+      background-color: #2d0424;
+      color: white;
+      font-size: 14px;
+      margin-top: 270px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="Services.html">Services</a>
+        <ul class="dropdown-menu">
+          <li><a href="table.html">Table Generator</a></li>
+          <li><a href="calculator.html">Calculator</a></li>
+          <li><a href="converter.html">Unit Converter</a></li>
+        </ul>
+      </li>
+      <li><a href="NewsChannel.html">News Channels</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="Contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+    <main>
+    
+    <section class="features" aria-label="Main features">
+      <div class="feature">
+        <h2>Simple Calculator</h2>
+        <p>Perform quick arithmetic calculations with a clean, easy-to-use interface.</p>
+      </div>
+      <div class="feature">
+        <h2>Unit Converter</h2>
+        <p>Convert measurements seamlessly between meters, miles, feet, kilometers, and more.</p>
+      </div>
+      <div class="feature">
+        <h2>Table Generator</h2>
+        <p>Generate multiplication tables for any number — perfect for learning and teaching.</p>
+      </div>
+    </section>
+  </main>
+  </div>
+
+  <footer>
+    &copy; 2025 MyWebsite. All rights reserved.
+  </footer>
+</body>
+</html>

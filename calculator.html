@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Calculator</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #2d0424;
+      padding: 15px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      color: #f39c12;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin: 40px 0 30px;
+    }
+
+    .container {
+      max-width: 400px;
+      background-color: white;
+      margin: 0 auto 60px;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    #screen {
+      width: 100%;
+      height: 50px;
+      font-size: 24px;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      text-align: right;
+      background-color: #f1f1f1;
+      user-select: none;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    button {
+      background-color: #6a1b9a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 20px;
+      padding: 18px 0;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+
+    button:hover {
+      background-color: #4a106f;
+    }
+
+    button.operator {
+      background-color: #f39c12;
+      color: #2d0424;
+      font-weight: bold;
+    }
+
+    button.operator:hover {
+      background-color: #d67e00;
+    }
+
+    button.equal {
+      background-color: #27ae60;
+      color: white;
+      font-weight: bold;
+      grid-column: span 2;
+    }
+
+    button.equal:hover {
+      background-color: #1f8f4b;
+    }
+
+    button.clear {
+      background-color: #e74c3c;
+      color: white;
+      font-weight: bold;
+      grid-column: span 2;
+    }
+
+    button.clear:hover {
+      background-color: #b73329;
+    }
+
+    footer {
+      text-align: center;
+      padding: 18px;
+      background-color: #2d0424;
+      color: white;
+      font-size: 14px;
+      margin-top: 40px;
+      position: relative;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        width: 90%;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="news.html">News Channels</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <h1>🧮 Calculator</h1>
+
+  <div class="container">
+    <input type="text" id="screen" disabled placeholder="0" />
+    <div class="buttons">
+      <button class="clear" id="clear">C</button>
+      <button class="operator" data-op="/">÷</button>
+      <button class="operator" data-op="*">×</button>
+      <button class="operator" data-op="-">−</button>
+
+      <button data-num="7">7</button>
+      <button data-num="8">8</button>
+      <button data-num="9">9</button>
+      <button class="operator" data-op="+">+</button>
+
+      <button data-num="4">4</button>
+      <button data-num="5">5</button>
+      <button data-num="6">6</button>
+      <button class="equal" id="equal">=</button>
+
+      <button data-num="1">1</button>
+      <button data-num="2">2</button>
+      <button data-num="3">3</button>
+      <button data-num="0" style="grid-column: span 2;">0</button>
+      <button data-num=".">.</button>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 MyWebsite. All rights reserved.
+  </footer>
+
+  <script>
+    const screen = document.getElementById('screen');
+    const buttons = document.querySelectorAll('button');
+    let currentInput = '';
+    let lastInput = '';
+    let operatorSet = false;
+
+    function updateScreen(value) {
+      screen.value = value;
+    }
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const num = btn.getAttribute('data-num');
+        const op = btn.getAttribute('data-op');
+
+        if (btn.id === 'clear') {
+          currentInput = '';
+          updateScreen('0');
+          operatorSet = false;
+          return;
+        }
+
+        if (btn.id === 'equal') {
+          try {
+            // Evaluate expression safely
+            let expression = currentInput;
+
+            // Replace multiplication/division symbols to JS operators
+            expression = expression.replace(/×/g, '*').replace(/÷/g, '/');
+            
+            // Avoid evaluating incomplete expressions ending with operator
+            if (/[+\-*/.]$/.test(expression)) {
+              expression = expression.slice(0, -1);
+            }
+
+            const result = Function(`return ${expression}`)();
+            updateScreen(result);
+            currentInput = result.toString();
+            operatorSet = false;
+          } catch {
+            updateScreen('Error');
+            currentInput = '';
+            operatorSet = false;
+          }
+          return;
+        }
+
+        if (num !== null) {
+          // Prevent multiple decimals in one number segment
+          if (num === '.' && currentInput.endsWith('.')) return;
+
+          currentInput += num;
+          updateScreen(currentInput);
+          operatorSet = false;
+          return;
+        }
+
+        if (op !== null) {
+          if (currentInput === '') return; // Prevent operator first input
+
+          if (operatorSet) {
+            // Replace last operator with new one
+            currentInput = currentInput.slice(0, -1) + op;
+          } else {
+            currentInput += op;
+            operatorSet = true;
+          }
+          updateScreen(currentInput);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

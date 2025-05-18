@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BBC News - MyWebsite</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      color: #2d0424;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      background-color: #2d0424;
+      padding: 15px 0;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 0;
+      padding: 0;
+      font-weight: bold;
+      position: relative;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s ease;
+      padding: 6px 12px;
+      border-radius: 6px;
+      display: inline-block;
+      user-select: none;
+    }
+
+    nav ul li a:hover,
+    nav ul li a:focus {
+      color: #f39c12;
+      background-color: rgba(255 255 255 / 0.15);
+      outline: none;
+      cursor: pointer;
+    }
+
+    main {
+      flex-grow: 1;
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+      text-align: center;
+      color: #2d0424;
+    }
+
+    main h1 {
+      font-size: 3.2rem;
+      margin-bottom: 20px;
+      color: #2d0424;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    }
+
+    main a {
+      color: #f39c12;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.3rem;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+
+    main a:hover,
+    main a:focus {
+      border-color: #f39c12;
+      outline: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 18px;
+      background-color: #2d0424;
+      color: white;
+      font-size: 14px;
+      box-shadow: 0 -3px 6px rgba(0,0,0,0.3);
+      margin-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 0;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Services.html">Services</a></li>
+      <li><a href="NewsChannel.html">News Channels</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="Contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>BBC News</h1>
+    <p>
+      Click the link below to visit the official BBC News website:
+    </p>
+    <p>
+      <a href="https://www.bbc.com/news" target="_blank" rel="noopener noreferrer">
+        Visit BBC News
+      </a>
+    </p>
+  </main>
+
+  <footer>
+    &copy; 2025 MyWebsite. All rights reserved.
+  </footer>
+
+</body>
+</html>

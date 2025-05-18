@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Table Generator</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #2d0424;
+      padding: 15px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      color: #f39c12;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 30px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .input-section, .output-section {
+      flex: 1;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 40px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #6a1b9a;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #4a106f;
+    }
+
+    .result {
+      background-color: #f1f1f1;
+      padding: 20px;
+      border-radius: 10px;
+      white-space: pre-line;
+    }
+
+    footer {
+      text-align: center;
+      padding: 18px;
+      background-color: #2d0424;
+      color: white;
+      font-size: 14px;
+      margin-top: 340px;
+      position: relative;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="news.html">News Channels</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <h1>📊 Table Generator</h1>
+
+  <div class="container">
+    <div class="input-section">
+      <input type="number" id="numberInput" placeholder="Enter a number..." />
+      <button onclick="generateTable()">Generate Table</button>
+    </div>
+
+    <div class="output-section">
+      <div class="result" id="resultBox">Enter a number to see the table here.</div>
+    </div>
+  </div>
+
+  
+
+  <script>
+    function generateTable() {
+      const num = parseInt(document.getElementById("numberInput").value);
+      const resultBox = document.getElementById("resultBox");
+      if (isNaN(num)) {
+        resultBox.innerHTML = "⚠️ Please enter a valid number.";
+        return;
+      }
+
+      let table = `Table for ${num}: \n\n`;
+      for (let i = 1; i <= 10; i++) {
+        table += `${num} × ${i} = ${num * i}\n`;
+      }
+      resultBox.innerHTML = table;
+    }
+  </script>
+  <footer>
+    &copy; 2025 MyWebsite. All rights reserved.
+  </footer>
+
+</body>
+</html>

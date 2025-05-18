@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unit Converter</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #2d0424;
+      padding: 15px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      color: #f39c12;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin: 40px 0 30px;
+    }
+
+    .container {
+      max-width: 900px;
+      background-color: white;
+      margin: 0 auto 60px;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .input-section, .output-section {
+      flex: 1;
+    }
+
+    label {
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    input[type="number"], select {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #6a1b9a;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #4a106f;
+    }
+
+    .result {
+      background-color: #f1f1f1;
+      padding: 30px 20px;
+      border-radius: 10px;
+      font-size: 22px;
+      color: #2c3e50;
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      white-space: pre-wrap;
+    }
+
+    footer {
+      text-align: center;
+      padding: 18px;
+      background-color: #2d0424;
+      color: white;
+      font-size: 14px;
+      margin-top: 155px;
+      position: relative;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      button {
+        width: 100%;
+      }
+      .result {
+        min-height: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="news.html">News Channels</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <h1>📏 Unit Converter</h1>
+
+  <div class="container">
+    <div class="input-section">
+      <label for="inputValue">Enter value:</label>
+      <input type="number" id="inputValue" placeholder="Enter number" />
+
+      <label for="fromUnit">From:</label>
+      <select id="fromUnit">
+        <option value="m">Meters (m)</option>
+        <option value="km">Kilometers (km)</option>
+        <option value="mi">Miles (mi)</option>
+        <option value="ft">Feet (ft)</option>
+      </select>
+
+      <label for="toUnit">To:</label>
+      <select id="toUnit">
+        <option value="m">Meters (m)</option>
+        <option value="km">Kilometers (km)</option>
+        <option value="mi">Miles (mi)</option>
+        <option value="ft">Feet (ft)</option>
+      </select>
+
+      <button onclick="convert()">Convert</button>
+    </div>
+
+    <div class="output-section">
+      <div class="result" id="resultBox">Result wil appear here: </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 MyWebsite. All rights reserved.
+  </footer>
+
+  <script>
+    const conversionRates = {
+      m: 1,
+      km: 0.001,
+      mi: 0.000621371,
+      ft: 3.28084
+    };
+
+    function convert() {
+      const inputValue = parseFloat(document.getElementById('inputValue').value);
+      const fromUnit = document.getElementById('fromUnit').value;
+      const toUnit = document.getElementById('toUnit').value;
+      const resultBox = document.getElementById('resultBox');
+
+      if (isNaN(inputValue)) {
+        resultBox.textContent = '⚠️ Please enter a valid number.';
+        return;
+      }
+
+      const valueInMeters = inputValue / conversionRates[fromUnit];
+      const convertedValue = valueInMeters * conversionRates[toUnit];
+
+      resultBox.textContent = `${inputValue} ${fromUnit} = ${convertedValue.toFixed(5)} ${toUnit}`;
+    }
+  </script>
+
+</body>
+</html>
